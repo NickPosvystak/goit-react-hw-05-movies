@@ -27,11 +27,11 @@ export const MovieDetails = () => {
       <button type="button">Go back</button>
       {error && <p>error.message</p>}
       <div>
-        <img src={movie.poster_path} alt="" />
+        <img src="" alt="" />
         <h1>MovieDetails:{movieId}</h1>
-        <h1>Name of movie: {movie.original_title}</h1>
-        <p>Overview:{movie.overview}</p>
-        <p>Genres:{movie.genres}</p>
+        <h1>Name of movie: </h1>
+        <p>Overview:</p>
+        <p>Genres:</p>
       </div>
       <div>
         <ul>
