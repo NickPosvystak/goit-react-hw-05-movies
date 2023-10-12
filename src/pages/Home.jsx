@@ -15,7 +15,7 @@ export const Home = () => {
         // setLoading(true)
         const data = await fetchTrending();
 
-        setMovies(data);
+        setMovies(data.results);
       } catch (error) {
         setError(error.message);
       }
