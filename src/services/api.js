@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+
 const API_KEY = '6ab01e7de22f8f583270a7ee53cfe6da';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3';
 
@@ -11,9 +12,27 @@ export const fetchTrending = async () => {
 };
 
 export const fetchMovieDetails = async movieId => {
-  const { dataDetails } = await axios.get(
+  const details = await axios.get(
     `/movie/${movieId}?api_key=${API_KEY}&language=en-US`
   );
-  console.log('dataDetails: ', dataDetails.results);
-  return dataDetails;
+  console.log('details: ', details.data);
+
+  return details;
 };
+
+export const fetchCast = async movieId => {
+  const {data} = await axios.get(
+    `/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`
+  );
+  console.log('dataCast: ', data);
+
+  return data.cast;
+};
+export const fetchReview = async (movieId) => {
+   const dataReview = await axios.get(
+     `/movie/${movieId}/reviews?api_key=${API_KEY}&language=en-US`
+     );
+  console.log('dataReview: ', dataReview.data);
+  return dataReview.data;
+  
+ }
