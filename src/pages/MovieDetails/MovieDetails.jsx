@@ -1,6 +1,6 @@
 import { BASE_POSTER_URL } from 'helpers/Helpers';
 import { useEffect, useRef, useState } from 'react';
-import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
+import {  Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchMovieDetails } from 'services/api';
 import {
   StyledDiv,

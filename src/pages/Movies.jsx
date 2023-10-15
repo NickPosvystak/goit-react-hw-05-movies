@@ -3,12 +3,12 @@
 import { Loader } from 'components/Loader';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useSearchParams } from 'react-router-dom';
+import {   useSearchParams } from 'react-router-dom';
 import { fetchSearchMovie } from 'services/api';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const location = useLocation();
+  // const location = useLocation();
   const [movies, setMovies] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -41,6 +41,7 @@ const Movies = () => {
 
   return (
     <div>
+      {isLoading && <Loader />}
       <form onSubmit={handleFormSubmit}>
         <label>
           <p>Search movie by Id: </p>
@@ -49,6 +50,7 @@ const Movies = () => {
         <button type="submit">Search</button>
       </form>
       <section>
+        {error && <p>error.message</p>}
         {movies !== null && <MoviesList movies={movies}></MoviesList>}
       </section>
     </div>
