@@ -64,10 +64,10 @@ const MovieDetails = () => {
             <StyledP>Additional information</StyledP>
             <StyledList>
               <StyledItem>
-                <StyledLinkComment to="cast">Cast😎</StyledLinkComment>
+                <StyledLinkComment to="cast">Cast</StyledLinkComment>
               </StyledItem>
               <li>
-                <StyledLinkComment to="review">Review😋</StyledLinkComment>
+                <StyledLinkComment to="review">Review</StyledLinkComment>
               </li>
             </StyledList>
           </div>
