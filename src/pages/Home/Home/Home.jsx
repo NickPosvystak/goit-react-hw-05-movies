@@ -1,15 +1,15 @@
 import { useEffect, useState } from 'react';
 import { fetchTrending } from 'services/api';
-import { MoviesList } from 'components/MoviesList';
+import { MoviesList } from 'components/MoviesList/MoviesList';
+import { StyledH2 } from './Home.styled';
 
-export const Home = () => {
+const Home = () => {
   const [error, setError] = useState(null);
   const [movies, setMovies] = useState([]);
 
   //   const { movieId } = useParams();
 
   useEffect(() => {
-
     const getTrendingMovies = async () => {
       try {
         // setLoading(true)
@@ -26,8 +26,10 @@ export const Home = () => {
   return (
     <>
       {error && <p>error.message</p>}
-      <h2>Trending today</h2>
-          <MoviesList movies={movies}></MoviesList>
+      <StyledH2>Trending today</StyledH2>
+      <MoviesList movies={movies}></MoviesList>
     </>
   );
 };
+
+export default Home;

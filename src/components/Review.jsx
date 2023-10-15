@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReview } from 'services/api';
 
-export const Review = () => {
+ const Review = () => {
   const { movieId } = useParams();
   const [reviewItems, setReviewItems] = useState(null);
 
@@ -36,3 +36,4 @@ export const Review = () => {
     </>
   );
 };
+export default Review;

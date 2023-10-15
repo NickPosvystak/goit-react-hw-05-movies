@@ -1,16 +1,20 @@
-import { Outlet } from 'react-router-dom';
-import { StyledLink } from './Layout.styled';
+import { NavLink, Outlet } from 'react-router-dom';
+import { StyledDNav, StyledLink, StyledLogo } from './Layout.styled';
+import Logo_SVG from 'components/Layout/Logo';
+// import { StyledDNav } from './Layout.styled';
 
-export const Layout = () => {
+const Layout = () => {
   return (
-    <>
-      <nav>
+    <div>
+      <NavLink to="/">
+        <StyledLogo src={Logo_SVG} alt="" />
+      </NavLink>
+      <StyledDNav>
         <StyledLink to="/">Home</StyledLink>
-      </nav>
-      <nav>
         <StyledLink to="/movies">Movies</StyledLink>
-      </nav>
+      </StyledDNav>
       <Outlet />
-    </>
+    </div>
   );
 };
+export default Layout;
