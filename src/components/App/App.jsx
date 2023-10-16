@@ -12,9 +12,9 @@ import { StyledDiv } from './App.styled';
 const Home = lazy(() => import('pages/Home/Home/Home'));
 const Layout = lazy(() => import('../Layout/Layout'));
 const MovieDetails = lazy(() => import('pages/MovieDetails/MovieDetails'));
-const Movies = lazy(() => import('pages/Movies'));
+const Movies = lazy(() => import('pages/Movies/Movies'));
 const Cast = lazy(() => import('../Cast/Cast'));
-const Review = lazy(() => import('../Review'));
+const Review = lazy(() => import('../Review/Review'));
 
 export const App = () => {
   return (

@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchReview } from 'services/api';
+import { StyledLi, StyledUl } from './Review.styled';
+import { Loader } from 'components/Loader';
 
  const Review = () => {
   const { movieId } = useParams();
-  const [reviewItems, setReviewItems] = useState(null);
+   const [reviewItems, setReviewItems] = useState(null);
+   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     if (!movieId) {
@@ -12,10 +15,15 @@ import { fetchReview } from 'services/api';
     }
     const fetchReviewItem = async () => {
       try {
+        setIsLoading(true)
         const revItems = await fetchReview(movieId);
 
         setReviewItems(revItems.results);
-      } catch (error) {}
+      } catch (error) {
+      console.log(error.message);
+      } finally {
+        setIsLoading(false)
+      }
     };
 
     fetchReviewItem();
@@ -23,15 +31,17 @@ import { fetchReview } from 'services/api';
 
   return (
     <>
+      {' '}
+      {isLoading && <Loader />}
       {reviewItems !== null && (
-        <ul>
+        <StyledUl>
           {reviewItems.map(reviewItem => (
-            <li key={reviewItem.id}>
+            <StyledLi key={reviewItem.id}>
               <b>Author: {reviewItem.author}</b>
               <p>{reviewItem.content}</p>
-            </li>
+            </StyledLi>
           ))}
-        </ul>
+        </StyledUl>
       )}
     </>
   );

@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div>
       <NavLink to="/">
-        <StyledLogo src={Logo_SVG} alt="" />
+        <StyledLogo src={Logo_SVG} alt="Netflix" />
       </NavLink>
       <StyledDNav>
         <StyledLink to="/">Home</StyledLink>

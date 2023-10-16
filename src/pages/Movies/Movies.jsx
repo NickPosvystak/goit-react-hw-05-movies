@@ -5,6 +5,7 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useEffect, useState } from 'react';
 import {   useSearchParams } from 'react-router-dom';
 import { fetchSearchMovie } from 'services/api';
+import { StyledForm } from './Movies.styled';
 
 const Movies = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -42,13 +43,12 @@ const Movies = () => {
   return (
     <div>
       {isLoading && <Loader />}
-      <form onSubmit={handleFormSubmit}>
+      <StyledForm onSubmit={handleFormSubmit}>
         <label>
-          <p>Search movie by Id: </p>
-          <input type="text" name="searchMovieId" required />
+          <input type="text" name="searchMovieId" placeholder='Search movie' required />
         </label>
         <button type="submit">Search</button>
-      </form>
+      </StyledForm>
       <section>
         {error && <p>error.message</p>}
         {movies !== null && <MoviesList movies={movies}></MoviesList>}

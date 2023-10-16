@@ -6,7 +6,7 @@ import {
   StyledCatalogList,
   StyledImg,
 } from './MoviesList.styled';
-import { BASE_POSTER_URL } from 'helpers/Helpers';
+import { BASE_POSTER_URL, DEFAULT_POSTER } from 'helpers/Helpers';
 import { StyledP } from 'components/Layout/Layout.styled';
 
 export const MoviesList = ({ movies }) => {
@@ -22,7 +22,11 @@ export const MoviesList = ({ movies }) => {
           <StyledCatalogList key={movie.id}>
             <Link state={{ from: location }} to={`/movies/${movie.id}`}>
               <StyledImg
-                src={`${BASE_POSTER_URL + movie.poster_path}`}
+                src={
+                  movie.poster_path
+                    ? `${BASE_POSTER_URL + movie.poster_path}`
+                    : DEFAULT_POSTER
+                }
                 alt={movie.title}
               />
               <StyledP>{movie.title}</StyledP>
