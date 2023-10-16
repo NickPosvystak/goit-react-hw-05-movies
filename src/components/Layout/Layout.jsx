@@ -1,7 +1,6 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import { StyledDNav, StyledLink, StyledLogo } from './Layout.styled';
 import Logo_SVG from 'components/Layout/Logo';
-// import { StyledDNav } from './Layout.styled';
 
 const Layout = () => {
   return (

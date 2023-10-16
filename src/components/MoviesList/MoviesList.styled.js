@@ -23,9 +23,7 @@ export const StyledCatalogList = styled.li`
   height: 406px;
   
   &:hover {
-    /* transform: scale(1.02) translateZ(0);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 0 20px var(--orange); */
+   
     cursor: pointer;
   }
   @media (min-width: 768px) {
